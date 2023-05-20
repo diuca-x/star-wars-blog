@@ -9,7 +9,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			vehicles: [
 
-			]
+			],
+
+			active : true
 		},
 		actions: {
 			
@@ -21,7 +23,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore()
 				setStore({[where]: [...store[where],response]})
 				
-				
+				console.log(getStore())
 			},
 
 			set_url: () => {
@@ -35,6 +37,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				
 				
  			},
+
 
 
 
