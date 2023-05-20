@@ -17,7 +17,7 @@ const Carousel = (props) => {
                 <div className="carousel-inner">
                     {who? who.map((x,index) =>{
                         const show = index === 0                        
-                        return <Carrousel_component name = {x.name} img = {x.img} key = {index} show = {show}/>
+                        return <Carrousel_component name = {x.name} img = {x.img} key = {index} show = {show} whole_thing={x}/>
                     })
                      : ""}
                     

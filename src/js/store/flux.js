@@ -11,7 +11,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			],
 
-			active : true
+			active : true,
+
+			favorites: [
+
+			]
 		},
 		actions: {
 			
@@ -37,6 +41,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				
 				
  			},
+
+			fav_agregator: (to_add) =>{
+				const store = getStore()
+				setStore({"favorites": [...store["favorites"],to_add]})
+
+
+			},
 
 
 
