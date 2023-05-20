@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 export const Footer = () => (
-	<footer className="py-3 mt-4  fixed-bottom border-top bg-dark ">
+	<footer className="py-3 bottom border-top mt-5 bg-dark "  >
             <ul className="nav justify-content-center  pb-3 mb-0">
             <li className="nav-item"><a href="#" className="nav-link px-2 text-body-secondary link-light ">Home</a></li>
             <li className="nav-item"><a href="#" className="nav-link px-2 text-body-secondary link-light">Features</a></li>

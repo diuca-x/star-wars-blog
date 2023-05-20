@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import { Home } from "./views/home";
+import Home from "./views/home";
 
 
 import injectContext from "./store/appContext";
@@ -17,11 +17,11 @@ const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
 	return (
-		<div>
+		<div className="container">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					<Navbar />
-					<Routes>
+					<Routes className="route" >
 						<Route path="/" element={<Home />} />				
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>

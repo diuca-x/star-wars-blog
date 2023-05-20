@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import getState from "./flux.js";
 
 // Don't change, here is where we initialize our context, by default it's just going to be null.
@@ -7,6 +7,8 @@ export const Context = React.createContext(null);
 // This function injects the global store to any view/component where you want to use it, we will inject the context to layout.js, you can see it here:
 // https://github.com/4GeeksAcademy/react-hello-webapp/blob/master/src/js/layout.js#L35
 const injectContext = PassedComponent => {
+	
+
 	const StoreWrapper = props => {
 		//this will be passed as the contenxt value
 		const [state, setState] = useState(
@@ -31,6 +33,43 @@ const injectContext = PassedComponent => {
 			 * state.actions.loadSomeData(); <---- calling this function from the flux.js actions
 			 *
 			 **/
+			//change to 100
+			fetch("https://www.swapi.tech/api/people?page=2&limit=10")
+			.then(response => response.json())
+			.then(result => {				
+				let pep = result.results.map(x =>{										
+					return { ...x, img: `https://starwars-visualguide.com/assets/img/characters/${x.uid}.jpg` }
+				})				
+				state.actions.loadSomeData(pep,"people")				
+			})
+			
+			.catch(error => console.log('error', error));
+
+			
+			//change to 61
+			fetch("https://www.swapi.tech/api/planets?page=2&limit=6")
+			.then(response => response.json())
+			.then(result => {				
+				let plan = result.results.map(x =>{										
+					return { ...x, img: `https://starwars-visualguide.com/assets/img/planets/${x.uid}.jpg` }
+				})				
+				state.actions.loadSomeData(plan,"planets")				
+			})
+			.catch(error => console.log('error', error));
+
+			//change to 40
+			fetch("https://www.swapi.tech/api/vehicles?page=2&limit=20")
+			.then(response => response.json())
+			.then(result => {
+				let veh = result.results.map(x=>{
+					return{ ...x, img: `https://starwars-visualguide.com/assets/img/vehicles/${x.uid}.jpg`}
+				})
+				state.actions.loadSomeData(veh,"vehicles")
+			})
+			.catch(error => console.log('error', error));	
+
+			
+
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,

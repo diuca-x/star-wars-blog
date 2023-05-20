@@ -1,14 +1,14 @@
 import React from "react";
 
-const Carrousel_component = () => {
-    let active = true
+const Carrousel_component = (props) => {
+    const {name,img,active} = props    
     return(
         <>            
             <div className={`carousel-item ${active? "active":""}`}> 
                 <div className="card">
-                    <img src="image1.jpg" className="card-img-top" alt="Image 1" />
+                    <img src={img} className="card-img-top" alt="Image 1" />
                     <div className="card-body">
-                        <h5 className="card-title">Card 1</h5>
+                        <h5 className="card-title">{name}</h5>
                         <p className="card-text">This is the content of Card 1.</p>
                     </div> 
                 </div>

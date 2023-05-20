@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import Carousel from "../component/carrousel";
+import { Context } from "../store/appContext";
 import "../../styles/home.css";
 
-export const Home = () => (
-	<div className="text-center mt-5">
-		    <Carousel/>
 
-			<Carousel/>
-			
-	</div>
-);
+const Home = () => {
+	const { store, actions } = useContext(Context);
+    let people = store.people
+    
+	return(
+			<>
+				<div className="text-center mt-5">
+						<Carousel people = {people}/>
+						<Carousel/>
+						<Carousel/>
+				
+				</div>
+			</>
+	);	
+	
+	};
+
+export default Home

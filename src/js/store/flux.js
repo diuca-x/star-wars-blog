@@ -1,29 +1,43 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
+			people: [
+				
+			],
+			planets: [
+
+			],
+			vehicles: [
+
 			]
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
+			
+			loadSomeData: (response,where) => {
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
+					
 				*/
+				const store = getStore()
+				setStore({[where]: [...store[where],response]})
+				
+				
 			},
+
+			set_url: () => {
+				const store = getStore()
+				
+				let pep = store.people.map(char => {
+					char.img = `https://starwars-visualguide.com/assets/img/characters/${char.uid}.jpg`
+					console.log(store)
+									
+				})
+				
+				
+ 			},
+
+
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
