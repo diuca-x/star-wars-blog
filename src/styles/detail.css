@@ -1,7 +1,9 @@
-.img{
-    width: 48vw;
-    height:45vw;
+.detail-img{
+    width: 100%;
+    height:100%;
 }
-.title{
-    font-size: 2.5vw;
+
+.detail-img-container{
+    width: 46vw;
+    height:43vw;
 }
