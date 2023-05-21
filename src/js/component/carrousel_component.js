@@ -10,7 +10,7 @@ const Carrousel_component = (props) => {
     
     return(
         <>            
-            <div className={`col-4`}> 
+            <div className={`col-4 mx-5`}> 
                 <div className="card mx-auto">
                     <img src={img} className="img card-img-top rounded  mx-auto" alt="Image 1" />
                     <div className="card-body">
