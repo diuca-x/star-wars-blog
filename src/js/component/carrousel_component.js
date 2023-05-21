@@ -3,14 +3,14 @@ import { Context } from "../store/appContext";
 import "../../styles/carrousel.css";
 
 const Carrousel_component = (props) => {
-    const {name,img,show,whole_thing} = props    
+    const {name,img,whole_thing} = props    
     const { store, actions } = useContext(Context);
-    let active = show? "active" :""
+    
     
     
     return(
         <>            
-            <div className={`carousel-item ${active}`}> 
+            <div className={`col-4`}> 
                 <div className="card mx-auto">
                     <img src={img} className="img card-img-top rounded  mx-auto" alt="Image 1" />
                     <div className="card-body">

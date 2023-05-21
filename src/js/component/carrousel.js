@@ -10,38 +10,19 @@ const Carousel = (props) => {
     
   return (
     <>
-        
-        <div className="container  mt-5">
-            <h1 className='text-start text-danger mt-5 mb-4'>{title}</h1>
-            <div id={carrousel_id} className="carousel slide">
-                <div className="carousel-inner">
+        <h1 className='text-start text-danger mt-5 '>{title}</h1>
+        <div className="container horizontal-scrollable mt-4">            
+            
+                <div className="row text-center">
                     {who? who.map((x,index) =>{
                         const show = index === 0                        
-                        return <Carrousel_component name = {x.name} img = {x.img} key = {index} show = {show} whole_thing={x}/>
+                        return <Carrousel_component name = {x.name} img = {x.img} key = {index}  whole_thing={x}/>
                     })
                      : ""}
                     
                     
-                </div>
-                <button
-                className="carousel-control-prev"
-                type="button"
-                data-bs-target={`#${carrousel_id}`}
-                data-bs-slide="prev"
-                >
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span className="visually-hidden">Previous</span>
-                </button>
-                <button
-                className="carousel-control-next"
-                type="button"
-                data-bs-target={`#${carrousel_id}`}
-                data-bs-slide="next"
-                >
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                <span className="visually-hidden">Next</span>
-                </button>
-            </div>
+                </div>                
+            
             
         </div>
     </>
