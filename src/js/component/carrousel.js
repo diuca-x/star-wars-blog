@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 
 
 const Carousel = (props) => {
-    const {who,title,carrousel_id} = props
+    const {who,title,type} = props
     const { store, actions } = useContext(Context);
       
     
@@ -16,7 +16,7 @@ const Carousel = (props) => {
                 <div className="row text-center flex-row flex-nowrap overflow-auto">
                     {who? who.map((x,index) =>{
                         const show = index === 0                        
-                        return <Carrousel_component name = {x.name} img = {x.img} key = {index}  whole_thing={x}/>
+                        return <Carrousel_component name = {x.name} img = {x.img} key = {index}  whole_thing={x} type={type}/>
                     })
                      : ""}
                     

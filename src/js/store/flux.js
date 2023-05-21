@@ -13,9 +13,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			active : true,
 
+			current: null,
+
 			favorites: [
 
 			]
+			
 		},
 		actions: {
 			
@@ -27,20 +30,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore()
 				setStore({[where]: [...store[where],response]})
 				
-				console.log(getStore())
+				
 			},
+			
 
-			set_url: () => {
-				const store = getStore()
-				
-				let pep = store.people.map(char => {
-					char.img = `https://starwars-visualguide.com/assets/img/characters/${char.uid}.jpg`
-					console.log(store)
-									
+			detail_loadinator: (what,id) =>{				
+
+				fetch(`https://www.swapi.tech/api/${what}/${id}`)
+				.then(response => response.json())
+				.then(result => {
+					if(what == "people"){
+						what = "characters"
+					}
+					let thing = { ...result.result.properties, img: `https://starwars-visualguide.com/assets/img/${what}/${id}.jpg`}
+					setStore({current: thing})
 				})
-				
-				
- 			},
+				.catch(err => console.error(err))
+
+				console.log(getStore())
+
+			},
 
 			fav_agregator: (to_add) =>{
 				const store = getStore()

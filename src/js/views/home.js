@@ -11,17 +11,17 @@ const Home = () => {
 			<>
 				<div className="row mt-5 text-center">
 					<div className="col">  
-						<Carousel who = {store.people[0]} title = {"Characters"} carrousel_id = {"carrousel_char"}/>						
+						<Carousel who = {store.people[0]} title = {"Characters"} type = {"people"}/>						
 					</div>
 				</div>
 				<div className="row mt-5 text-center">
 					<div className="col">  
-						<Carousel who = {store.planets[0]} title = {"Planets"} carrousel_id = {"carrousel_plan"}/>						
+						<Carousel who = {store.planets[0]} title = {"Planets"} type = {"planets"}/>						
 					</div>
 				</div>
 				<div className="row mt-5 text-center">
 					<div className="col">  
-						<Carousel who = {store.vehicles[0]} title = {"Vehicles"} carrousel_id = {"carrousel_vh"}/>						
+						<Carousel who = {store.vehicles[0]} title = {"Vehicles"} type = {"vehicles"}/>						
 					</div>
 				</div>
 			</>

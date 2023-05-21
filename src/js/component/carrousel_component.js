@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/carrousel.css";
+import { Link } from "react-router-dom";
 
 const Carrousel_component = (props) => {
-    const {name,img,whole_thing} = props    
+    const {name,img,whole_thing,type} = props    
     const { store, actions } = useContext(Context);
     
     
@@ -16,7 +17,10 @@ const Carrousel_component = (props) => {
                     <div className="card-body">
                         <h5 className="card-title title">{name}</h5>
                         <div className="d-flex justify-content-between">
-                        <button className="btn btn-primary " type="submit" > <p className="btn_text mx-auto my-auto">Learn more!</p> </button>
+                        <Link to={`/detail/${type}/${whole_thing.uid}`}>
+                            <button className="btn btn-primary " type="submit" > <p className="btn_text mx-auto my-auto">Learn more!</p> </button>
+                        </Link>
+                        
                         <button className="btn btn-warning " type="submit" onClick={actions.fav_agregator(whole_thing)}><i className="far fa-heart btn_text mx-auto my-auto"></i></button>
                         </div>
                     </div> 
