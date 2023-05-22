@@ -11,7 +11,7 @@ const Detail = () =>{
     
     useEffect(()=>{
         actions.detail_loadinator(params.type,params.id)
-    }),[]
+    },[])
     
     
 

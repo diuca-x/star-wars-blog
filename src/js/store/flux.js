@@ -47,7 +47,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 				.catch(err => console.error(err))
 
-				console.log(getStore())
+				
 
 			},
 
@@ -55,8 +55,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore()
 				setStore({"favorites": [...store["favorites"],to_add]})
 				
+				
 
+			},
 
+			fav_deletinator: (to_delete) =>{
+				console.log("todelete: "+to_delete.uid)
+				const store = getStore()
+				let filtered_store = store.favorites.filter(x=> x.uid != to_delete.uid)
+				console.log(filtered_store)
+				
+				setStore({"favorites": filtered_store})
+				
+				
+				console.log(getStore())
 			},
 
 

@@ -21,7 +21,8 @@ const Carrousel_component = (props) => {
                             <button className="btn btn-primary " type="submit" > <p className="btn_text mx-auto my-auto">Learn more!</p> </button>
                         </Link>
                         
-                        <button className="btn btn-warning " type="submit" onClick={actions.fav_agregator(whole_thing)}><i className="far fa-heart btn_text mx-auto my-auto"></i></button>
+                        <button className="btn btn-warning " type="submit" onClick={()=> {
+                            actions.fav_agregator(whole_thing)}}><i className="far fa-heart btn_text mx-auto my-auto"></i></button>
                         </div>
                     </div> 
                 </div>
