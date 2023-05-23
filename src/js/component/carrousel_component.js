@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/carrousel.css";
 import { Link } from "react-router-dom";
@@ -7,7 +7,17 @@ const Carrousel_component = (props) => {
     const {name,img,whole_thing,type} = props    
     const { store, actions } = useContext(Context);
     
+    const [toggle, setTogle] = useState("not_in_fav")
     
+    const click_handlinator = () =>{
+        if(toggle == "not_in_fav"){
+            actions.fav_agregator(whole_thing)
+            setTogle("in_fav")
+        } else if (toggle == "in_fav"){
+            actions.fav_deletinator(whole_thing)
+            setTogle("not_in_fav")
+        }
+    }
     
     return(
         <>            
@@ -21,8 +31,7 @@ const Carrousel_component = (props) => {
                             <button className="btn btn-primary " type="submit" > <p className="btn_text mx-auto my-auto">Learn more!</p> </button>
                         </Link>
                         
-                        <button className="btn btn-warning " type="submit" onClick={()=> {
-                            actions.fav_agregator(whole_thing)}}><i className="far fa-heart btn_text mx-auto my-auto"></i></button>
+                        <button className="btn btn-warning " type="submit" onClick={()=> {click_handlinator()}}><i className="far fa-heart btn_text mx-auto my-auto"></i></button>
                         </div>
                     </div> 
                 </div>

@@ -42,7 +42,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if(what == "people"){
 						what = "characters"
 					}
-					let thing = { ...result.result.properties, img: `https://starwars-visualguide.com/assets/img/${what}/${id}.jpg`}
+					let thing = { ...result.result.properties, img: `https://starwars-visualguide.com/assets/img/${what}/${id}.jpg`}					
 					setStore({current: thing})
 				})
 				.catch(err => console.error(err))

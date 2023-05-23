@@ -2,6 +2,9 @@ import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import Data_char from "../component/data_char";
+import Data_plan from "../component/data_plan";
+import Data_veh from "../component/data_veh";
 import "../../styles/detail.css";
 
 const Detail = () =>{
@@ -32,33 +35,12 @@ const Detail = () =>{
                     </div>
                 </div>
                 <div className="row text-center mt-5 mb-4 border-top border-danger">
-                    <div className="col-12 col-md-4 col-lg-2">
-                        <p className="detail-text text-danger fw-bold"> Name </p>
-                        <p className="detail-text text-danger"> {to_show.name} </p>
-                    </div>
-                    <div className="col-12 col-md-4 col-lg-2">
-                        <p className="detail-text text-danger fw-bold"> Birth year </p>
-                        <p className="detail-text text-danger"> {to_show.birth_year} </p>
-                    </div>
-                    <div className="col-12 col-md-4 col-lg-2">
-                        <p className="detail-text text-danger fw-bold"> Gender </p>
-                        <p className="detail-text text-danger"> {to_show.gender} </p>
-                    </div>
-                    <div className="col-12 col-md-4 col-lg-2">
-                        <p className="detail-text text-danger fw-bold"> Height </p>
-                        <p className="detail-text text-danger"> {to_show.height} </p>
-                    </div>
-                    <div className="col-12 col-md-4 col-lg-2">
-                        <p className="detail-text text-danger fw-bold"> Skin Color </p>
-                        <p className="detail-text text-danger"> {to_show.skin_color} </p>
-                    </div>
-                    <div className="col-12 col-md-4 col-lg-2">
-                        <p className="detail-text text-danger fw-bold"> Eye Color </p>
-                        <p className="detail-text text-danger"> {to_show.eye_color} </p>
-                    </div>
+                    {params.type == "people"? <Data_char to_show={to_show} /> : ""}
+                    {params.type == "planets"? <Data_plan to_show={to_show} /> : ""}
+                    {params.type == "vehicles"? <Data_veh to_show={to_show} /> : ""}
                 </div>
     
-            </>
+            </>// no se me ocurrio otra forma mas que con 3 componentes, no veo que compartan nada como para estandrizarlo en una sola funcion
         );
     } else {
         return (
