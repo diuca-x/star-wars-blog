@@ -34,7 +34,7 @@ const injectContext = PassedComponent => {
 			 *
 			 **/
 			//change to 100
-			fetch("https://www.swapi.tech/api/people?page=2&limit=3")
+			fetch("https://www.swapi.tech/api/people?page=2&limit=100")
 			.then(response => response.json())
 			.then(result => {				
 				let pep = result.results.map(x =>{										
@@ -47,7 +47,7 @@ const injectContext = PassedComponent => {
 
 			
 			//change to 61
-			fetch("https://www.swapi.tech/api/planets?page=2&limit=6")
+			fetch("https://www.swapi.tech/api/planets?page=2&limit=61")
 			.then(response => response.json())
 			.then(result => {				
 				let plan = result.results.map(x =>{										
@@ -58,7 +58,7 @@ const injectContext = PassedComponent => {
 			.catch(error => console.log('error', error));
 
 			//change to 40
-			fetch("https://www.swapi.tech/api/vehicles?page=2&limit=5")
+			fetch("https://www.swapi.tech/api/vehicles?page=2&limit=40")
 			.then(response => response.json())
 			.then(result => {
 				let veh = result.results.map(x=>{
