@@ -1,17 +1,23 @@
 .img{
     width: 100%;
-    height: 30vw;
+    height: 100%;
 }
 
 .card{
-    width: 25vw;
-    
+    width: 18rem;
+    height: 20rem;
 }
 
 .btn_text {
-    font-size: 1vw;
+    font-size: 75%;
 }
 
 .title{
-    font-size: 1.5vw;
+    font-size: 100%;
 }
+
+.carrousel{
+    height: 30rem;
+    overflow-y: none;
+}
+
